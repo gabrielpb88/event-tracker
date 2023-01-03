@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { IEvento } from '../../interfaces/IEvento';
 import style from './Formulario.module.scss';
-import { useSetRecoilState } from 'recoil';
-import { listaDeEventosState } from '../../state';
 import useAdicionarEvento from '../../hooks/useAdicionarEvento';
 
 const Formulario: React.FC = () => {
-  const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState);
   const adicionarEvento = useAdicionarEvento();
 
   const [descricao, setDescricao] = useState('');
@@ -30,7 +26,6 @@ const Formulario: React.FC = () => {
     };
     try {
       adicionarEvento(evento);
-      setListaDeEventos((prevState) => [...prevState, evento]);
       setDescricao('');
       setDataInicio('');
       setHoraInicio('');
