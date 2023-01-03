@@ -4,7 +4,7 @@ import { useSetRecoilState } from 'recoil';
 import { listaDeEventosState } from '../../../state';
 
 const EventoCheckbox: React.FC<{ evento: IEvento }> = ({ evento }) => {
-  const setListaDeEventos = useSetRecoilState(listaDeEventosState);
+  const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState);
   const alterarStatus = () => {
     const eventoAlterado = {
       ...evento,
